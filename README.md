@@ -1,266 +1,180 @@
 # Startup Funding Analysis
 
-An exploratory data analytics project analyzing Indian startup funding trends, investment patterns, sector-wise funding distribution, and investor activity using Python, SQL, and data visualization.
+A Python-based exploratory data analysis project examining historical funding activity across India's startup ecosystem. It cleans and enriches raw funding records, identifies sector and city trends, evaluates investor activity, and creates publication-ready visualizations.
+
+[![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![Pandas](https://img.shields.io/badge/Pandas-150458?logo=pandas&logoColor=white)](https://pandas.pydata.org/)
+[![NumPy](https://img.shields.io/badge/NumPy-013243?logo=numpy&logoColor=white)](https://numpy.org/)
+[![Matplotlib](https://img.shields.io/badge/Matplotlib-11557C?logo=matplotlib&logoColor=white)](https://matplotlib.org/)
 
 ## Overview
 
-Startup Funding Analysis is a data-driven analytical project that explores the Indian startup ecosystem through historical funding data. The project uses data cleaning, exploratory data analysis (EDA), SQL queries, and visualization techniques to identify investment patterns and understand how funding is distributed across different sectors, cities, and investors.
+This project explores how startup funding has evolved over time and where investment has been concentrated in India. The analysis transforms a Kaggle funding dataset into a cleaned CSV and produces charts covering sectors, cities, investors, and yearly funding patterns.
 
-The system transforms raw startup funding records into meaningful insights, helping uncover investment trends and funding concentration within India's startup ecosystem.
+### Key questions answered
 
-The project provides:
+- Which sectors received the most funding?
+- Which cities attracted the highest investment?
+- Who were the most active investors?
+- How did startup funding change from year to year?
+- How can raw funding values be standardized for reliable analysis?
 
-* Startup funding trend analysis
-* Sector-wise funding distribution
-* Leading startup city identification
-* Most active investor analysis
-* Yearly funding trend visualization
-* Data cleaning and preprocessing
-* SQL-based analytical queries
-* Exploratory Data Analysis (EDA)
+## Visualizations
 
----
+<table>
+  <tr>
+    <td align="center"><strong>Top Startup Cities</strong><br><img src="visuals/top_cities.png" alt="Top startup cities" width="450"></td>
+    <td align="center"><strong>Top Investors</strong><br><img src="visuals/top_investors.png" alt="Top investors" width="450"></td>
+  </tr>
+  <tr>
+    <td align="center"><strong>Top Funded Sectors</strong><br><img src="visuals/top_sectors.png" alt="Top funded sectors" width="450"></td>
+    <td align="center"><strong>Yearly Funding Trends</strong><br><img src="visuals/yearly_funding.png" alt="Yearly funding trends" width="450"></td>
+  </tr>
+</table>
 
 ## Features
 
-### Data Cleaning & Preprocessing
-
-The project processes raw startup funding data to improve data quality and consistency.
-
-Key operations include:
-
-* Handling missing values
-* Cleaning inconsistent records
-* Standardizing dataset fields
-* Processing funding amount information
-* Preparing structured datasets for analysis
-
-### Sector-wise Funding Analysis
-
-Identifies industries attracting the highest startup investments.
-
-The analysis includes:
-
-* Top-funded startup sectors
-* Sector-wise funding distribution
-* Investment concentration across industries
-
-### Startup City Analysis
-
-Examines the geographical distribution of startup investments across India.
-
-The analysis identifies:
-
-* Leading startup cities
-* Cities attracting the highest funding
-* Geographical concentration of startup investments
-
-### Investor Analysis
-
-Evaluates investor participation and funding activity.
-
-The analysis includes:
-
-* Most active investors
-* Investor participation patterns
-* Funding activity across the startup ecosystem
-
-### Yearly Funding Trends
-
-Analyzes historical funding patterns to understand changes in startup investments over time.
-
-Key indicators include:
-
-* Annual funding distribution
-* Year-over-year funding patterns
-* Changes in investment activity
-
-### Data Visualization
-
-The project uses graphical representations to make funding patterns easier to interpret.
-
-Visualizations include:
-
-* Top-funded startup cities
-* Leading investors
-* Top-funded sectors
-* Yearly funding trends
-
----
+- Removes duplicate records from the source dataset.
+- Standardizes column names and whitespace.
+- Converts date fields into a usable datetime format.
+- Extracts year-level values for trend analysis.
+- Cleans funding amounts, including commas and disclosed-value markers.
+- Converts funding values to numeric form and excludes missing amounts.
+- Groups and ranks the top sectors, cities, and investors.
+- Generates high-resolution PNG charts automatically.
+- Produces a cleaned CSV for reuse in dashboards or further SQL analysis.
 
 ## Dataset
 
-**Dataset Source:** [Indian Startup Funding – Kaggle](https://www.kaggle.com/datasets/sudalairajkumar/indian-startup-funding)
+The project uses the **Indian Startup Funding** dataset published on Kaggle:
 
-The dataset contains historical Indian startup funding information, including:
+- Dataset: [Indian Startup Funding](https://www.kaggle.com/datasets/sudalairajkumar/indian-startup-funding)
+- Raw file: [`data/startup_funding.csv`](data/startup_funding.csv)
+- Cleaned output: [`data/cleaned_startup_funding.csv`](data/cleaned_startup_funding.csv)
 
-* Startup names
-* Industry sectors
-* Investor information
-* Funding amounts
-* Startup locations
-* Funding dates
-
-The dataset serves as the foundation for exploratory analysis and SQL-based investigation.
-
----
+The source data includes startup names, industry verticals, investor names, funding amounts, cities, and funding dates.
 
 ## Technology Stack
 
-### Programming & Data Analysis
-
-* Python
-* Pandas
-* NumPy
-
-### Data Visualization
-
-* Matplotlib
-
-### Database & Querying
-
-* SQL
-
-### Development Tools
-
-* VS Code
-* Git
-* GitHub
-
----
+| Category | Technologies |
+| --- | --- |
+| Language | Python |
+| Data processing | Pandas, NumPy |
+| Visualization | Matplotlib |
+| Analysis | SQL |
+| Development | VS Code, Git, GitHub |
 
 ## Project Structure
 
 ```text
-Startup-Funding-Analysis/
-│
+startup_pred/
 ├── data/
 │   ├── startup_funding.csv
 │   └── cleaned_startup_funding.csv
-│
 ├── sql/
 │   ├── investors.sql
 │   ├── top_cities.sql
 │   ├── top_sectors.sql
 │   └── yearly_fund.sql
-│
 ├── visuals/
 │   ├── top_cities.png
 │   ├── top_investors.png
 │   ├── top_sectors.png
 │   └── yearly_funding.png
-│
 ├── analysis.py
 ├── requirements.txt
 └── README.md
 ```
 
----
+## Getting Started
 
-## Installation
+### Prerequisites
 
-Clone the repository:
+- Python 3.9 or newer
+- `pip`
+- A virtual environment is recommended
 
-```bash
-git clone https://github.com/yourusername/startup-funding-analysis.git
-cd startup-funding-analysis
-```
-
-Install dependencies:
+### Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/sudeep-06/startup_pred.git
+cd startup_pred
+
+# Create and activate a virtual environment
+python -m venv venv
+
+# Windows
+venv\Scripts\activate
+
+# macOS / Linux
+source venv/bin/activate
+
+# Install dependencies
 pip install -r requirements.txt
 ```
 
-Ensure the dataset is placed inside the `data/` directory.
+### Run the Analysis
 
-Run the analysis:
+Execute the script from the repository root:
 
 ```bash
 python analysis.py
 ```
 
----
+The script reads `data/startup_funding.csv`, prints summary results and rankings to the terminal, saves charts in `visuals/`, and creates `data/cleaned_startup_funding.csv`.
 
 ## SQL Analysis
 
-The project uses SQL queries to investigate different dimensions of startup funding.
+The `sql/` directory contains focused queries for investigating the cleaned dataset:
 
-Analytical queries include:
+- [`investors.sql`](sql/investors.sql) — investor activity analysis
+- [`top_cities.sql`](sql/top_cities.sql) — city-level funding distribution
+- [`top_sectors.sql`](sql/top_sectors.sql) — sector-level funding comparison
+- [`yearly_fund.sql`](sql/yearly_fund.sql) — yearly funding trends
 
-* `investors.sql` – Identifies the most active investors.
-* `top_cities.sql` – Analyzes startup funding across cities.
-* `top_sectors.sql` – Identifies leading funded sectors.
-* `yearly_fund.sql` – Examines annual funding trends.
+## Methodology
 
----
-
-## Exploratory Data Analysis
-
-The EDA workflow focuses on identifying patterns, distributions, and relationships within the startup funding dataset.
-
-Key analytical dimensions include:
-
-* Funding distribution across industries
-* Geographical investment concentration
-* Investor participation
-* Historical funding patterns
-
----
-
-## Visualizations
-
-The project generates visual representations of the analytical findings.
-
-Add screenshots of:
-
-* Top Startup Cities
-* Top Investors
-* Top Funded Sectors
-* Yearly Funding Trends
-
----
+1. Load the raw CSV into a Pandas DataFrame.
+2. Remove duplicate records and normalize column names.
+3. Parse dates and derive the funding year.
+4. Remove formatting characters from funding amounts and convert values to numeric form.
+5. Drop records with unavailable funding amounts.
+6. Group funding data by sector, city, investor, and year.
+7. Rank the top ten categories and export visual summaries.
 
 ## Future Enhancements
 
-Planned improvements include:
+- Build an interactive Streamlit or Power BI dashboard.
+- Add automated missing-data and anomaly reports.
+- Include year-over-year growth metrics.
+- Develop geographic funding maps.
+- Create an investor–startup network analysis.
+- Add funding prediction and forecasting models.
+- Automate dataset ingestion and refreshes.
 
-* Interactive Power BI dashboard
-* Advanced investor network analysis
-* Startup funding prediction models
-* Geographic funding distribution maps
-* Industry-wise investment forecasting
-* Year-over-year growth analysis
-* Automated data ingestion pipeline
-* Interactive filtering and reporting
+## Contributing
 
----
+Contributions are welcome. To contribute:
+
+1. Fork the repository.
+2. Create a feature branch.
+3. Commit your changes with clear messages.
+4. Open a pull request describing the improvement.
+
+Please keep generated data and image changes intentional and reproducible.
 
 ## License
 
-MIT License
-
-Copyright (c) 2026 Startup Funding Analysis
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files, to deal in the Software without restriction.
-
----
+This repository does not currently specify an open-source license.
 
 ## Author
 
-Sudeep
+**Sudeep**  
+Student • Data Enthusiast • Aspiring Founder
 
-Student • Builder • Aspiring Founder
+GitHub: [@sudeep-06](https://github.com/sudeep-06)
 
 ---
 
-## Acknowledgments
-
-* Kaggle – Indian Startup Funding Dataset
-* Python
-* Pandas & NumPy
-* Matplotlib
-* SQL
-* Open Source Community
-
-Built to explore India's startup investment landscape through data analytics, SQL, and visualization.
+Built to explore India's startup investment landscape through data analytics and visualization.
